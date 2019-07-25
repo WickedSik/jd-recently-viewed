@@ -24,17 +24,18 @@ require_once(__DIR__ . '/widget.php');
 // 4. output as a widget
 // 5. output as a shortcode (nice to have)
 
-function jrv_load_widget() {
+function jrv_load_widget()
+{
     register_widget('jrv_widget');
 }
+
 add_action('widgets_init', 'jrv_load_widget');
 
-add_action('init', function() {
-    if(!is_admin()) {
+add_action('init', function () {
+    if (!is_admin()) {
         $actual_url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on' ? "https" : "http") . "://{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}";
         $post_id = url_to_postid($actual_url);
-        
+
         jrv_lastviewed_repo::addCurrentPage($post_id);
     }
 });
-
