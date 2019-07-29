@@ -6,7 +6,7 @@
  * Version: 1.0
  * Requires PHP: 5.6
  * Author: Jurriën Dokter
- * License: copyleft
+ * License: GPLv2
  */
 
 // block direct access
