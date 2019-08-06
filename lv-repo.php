@@ -50,7 +50,7 @@ class jrv_lastviewed_repo
             }
 
             // save the cookie
-            setcookie('jrv_pages', json_encode(self::$pageList), 0, COOKIEPATH, COOKIE_DOMAIN);
+            setcookie('jrv_pages_dated', json_encode(self::$pageList), 0, COOKIEPATH, COOKIE_DOMAIN);
         }
     }
 
