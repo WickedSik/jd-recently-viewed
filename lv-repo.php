@@ -35,19 +35,21 @@ class jrv_lastviewed_repo
             $pageList = array_reverse(self::$pageList);
             
             // filter out all the duplicate page id's
-            self::$pageList = array_filter($pageList, function($page, $index) use ($pageList) {
+            $pageList = array_filter($pageList, function($page, $index) use ($pageList) {
                 return array_search($page[0], array_column(0, $pageList)) === $index;
             });
             
             // sort the visits by date
-            usort(self::$pageList, function($a, $b) { 
-                return $a[1] > $b[1] ? 1 : $a[1] < $b[1] ? -1 : 0;
+            usort($pageList, function($a, $b) { 
+                return $a[1] > $b[1] ? 1 : ($a[1] < $b[1] ? -1 : 0);
             });
 
             // store a maximum of 25 pages
-            while (count(self::$pageList) > 25) {
-                array_shift(self::$pageList);
+            while (count($pageList) > 25) {
+                array_shift($pageList);
             }
+
+            self::$pageList = $pageList;
 
             // save the cookie
             setcookie('jrv_pages_dated', json_encode(self::$pageList), 0, COOKIEPATH, COOKIE_DOMAIN);

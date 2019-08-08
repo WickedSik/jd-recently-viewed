@@ -25,5 +25,8 @@ This provides a single widget with an optional title and amount (default 5). The
 
 === Changelog ===
 
+= 1.1 =
+* Fix problems with revisiting pages
+
 = 1.0 =
 * First version
