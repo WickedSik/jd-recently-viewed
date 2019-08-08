@@ -34,7 +34,7 @@ class jrv_widget extends WP_Widget
             echo '<ul>';
 
             foreach ($pagelist as $page) {
-                $post = get_post($page);
+                $post = get_post($page[0]);
                 printf('<li title="%s"><a href="%s">%s</a></li>', get_the_title($post), get_permalink($post), get_the_title($post));
             }
 

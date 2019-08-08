@@ -3,7 +3,7 @@
 /**
  * Plugin Name: JD's Recently Viewed Pages
  * Description: Shows the recently viewed pages in a convenient widget, no style included!
- * Version: 1.0
+ * Version: 1.1
  * Requires PHP: 5.6
  * Author: Jurriën Dokter
  * License: GPLv2
