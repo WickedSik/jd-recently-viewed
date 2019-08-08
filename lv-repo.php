@@ -32,15 +32,15 @@ class jrv_lastviewed_repo
 
             // add new page and reverse order so the first occurance of a page is the last occurance found
             self::$pageList[] = [$post_id, time()];
-            self::$Pagelist = array_reverse(self::$pagelist);
+            $pageList = array_reverse(self::$pageList);
             
             // filter out all the duplicate page id's
-            self::$pageList = array_filter(self::$pageList, function($page, $index) use (self::$pagelist) {
-                return array_search($page[0], array_column(0, self::$pagelist)) === $index;
+            self::$pageList = array_filter($pageList, function($page, $index) use ($pageList) {
+                return array_search($page[0], array_column(0, $pageList)) === $index;
             });
             
             // sort the visits by date
-            usort(self::$pagelist, function($a, $b) { 
+            usort(self::$pageList, function($a, $b) { 
                 return $a[1] > $b[1] ? 1 : $a[1] < $b[1] ? -1 : 0;
             });
 
